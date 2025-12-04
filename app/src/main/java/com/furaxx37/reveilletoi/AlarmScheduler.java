@@ -11,7 +11,9 @@ public class AlarmScheduler {
     public static void scheduleAlarm(Context context, Alarm alarm) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, AlarmReceiver.class);
-        intent.putExtra("alarm", alarm);
+        intent.putExtra("alarm_id", alarm.getId());
+        intent.putExtra("alarm_label", alarm.getLabel());
+        intent.putExtra("ringtone_uri", alarm.getRingtoneUri());
         
         int flags = PendingIntent.FLAG_UPDATE_CURRENT;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
