@@ -3,7 +3,7 @@ package com.furaxx37.reveilletoi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Switch;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -64,7 +64,7 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
     class AlarmViewHolder extends RecyclerView.ViewHolder {
         private TextView timeText;
         private TextView labelText;
-        private Switch alarmSwitch;
+        private SwitchMaterial alarmSwitch;
         private View deleteButton;
 
         public AlarmViewHolder(@NonNull View itemView) {

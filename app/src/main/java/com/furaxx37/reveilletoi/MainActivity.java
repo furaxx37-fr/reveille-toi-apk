@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements AlarmAdapter.OnAl
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AddAlarmActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, 1001); // REQUEST_CODE_ADD_ALARM
             }
         });
     }
@@ -99,6 +99,37 @@ public class MainActivity extends AppCompatActivity implements AlarmAdapter.OnAl
     public void onAlarmEdit(Alarm alarm) {
         Intent intent = new Intent(MainActivity.this, AddAlarmActivity.class);
         intent.putExtra("alarm_id", alarm.getId());
-        startActivity(intent);
+        startActivityForResult(intent, 1002); // REQUEST_CODE_EDIT_ALARM
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        
+        if (resultCode == RESULT_OK && data != null) {
+            if (requestCode == 1001) { // REQUEST_CODE_ADD_ALARM
+                // Handle new alarm creation
+                Alarm newAlarm = (Alarm) data.getSerializableExtra(AddAlarmActivity.EXTRA_ALARM);
+                if (newAlarm != null) {
+                    long alarmId = databaseHelper.insertAlarm(newAlarm);
+                    newAlarm.setId(alarmId);
+                    if (newAlarm.isEnabled()) {
+                        AlarmScheduler.scheduleAlarm(this, newAlarm);
+                    }
+                    loadAlarms();
+                }
+            } else if (requestCode == 1002) { // REQUEST_CODE_EDIT_ALARM
+                // Handle alarm editing
+                Alarm updatedAlarm = (Alarm) data.getSerializableExtra("alarm");
+                if (updatedAlarm != null) {
+                    databaseHelper.updateAlarm(updatedAlarm);
+                    AlarmScheduler.cancelAlarm(this, updatedAlarm);
+                    if (updatedAlarm.isEnabled()) {
+                        AlarmScheduler.scheduleAlarm(this, updatedAlarm);
+                    }
+                    loadAlarms();
+                }
+            }
+        }
     }
 }

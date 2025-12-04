@@ -1,18 +1,24 @@
 package com.furaxx37.reveilletoi;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
@@ -21,6 +27,7 @@ import java.util.List;
 public class RingtoneSelectionActivity extends AppCompatActivity implements RingtoneAdapter.OnRingtoneClickListener {
     
     private static final String TAG = "RingtoneSelection";
+    private static final int PERMISSION_REQUEST_READ_MEDIA_AUDIO = 1001;
     public static final String EXTRA_SELECTED_RINGTONE_URI = "selected_ringtone_uri";
     public static final String EXTRA_CURRENT_RINGTONE_URI = "current_ringtone_uri";
     
@@ -38,13 +45,59 @@ public class RingtoneSelectionActivity extends AppCompatActivity implements Ring
         
         initializeViews();
         setupRecyclerView();
-        loadRingtones();
         setupListeners();
+        
+        // Check and request permissions before loading ringtones
+        if (checkAudioPermission()) {
+            loadRingtones();
+        } else {
+            requestAudioPermission();
+        }
         
         // Get current ringtone URI from intent
         String currentRingtoneUri = getIntent().getStringExtra(EXTRA_CURRENT_RINGTONE_URI);
         if (currentRingtoneUri != null) {
             selectedRingtoneUri = currentRingtoneUri;
+        }
+    }
+
+    private boolean checkAudioPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            return ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_AUDIO) 
+                   == PackageManager.PERMISSION_GRANTED;
+        } else {
+            return ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) 
+                   == PackageManager.PERMISSION_GRANTED;
+        }
+    }
+
+    private void requestAudioPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(this, 
+                new String[]{Manifest.permission.READ_MEDIA_AUDIO}, 
+                PERMISSION_REQUEST_READ_MEDIA_AUDIO);
+        } else {
+            ActivityCompat.requestPermissions(this, 
+                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 
+                PERMISSION_REQUEST_READ_MEDIA_AUDIO);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        
+        if (requestCode == PERMISSION_REQUEST_READ_MEDIA_AUDIO) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, load ringtones
+                loadRingtones();
+            } else {
+                // Permission denied
+                Toast.makeText(this, "Permission required to access ringtones", Toast.LENGTH_LONG).show();
+                // Load default ringtones or show empty list
+                ringtones = new ArrayList<>();
+                adapter.notifyDataSetChanged();
+            }
         }
     }
 
@@ -222,39 +275,4 @@ public class RingtoneSelectionActivity extends AppCompatActivity implements Ring
         super.onBackPressed();
     }
 
-    /**
-     * Inner class to represent a ringtone item
-     */
-    public static class RingtoneItem {
-        private String title;
-        private String uri;
-        private boolean isDefault;
-
-        public RingtoneItem(String title, String uri, boolean isDefault) {
-            this.title = title;
-            this.uri = uri;
-            this.isDefault = isDefault;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public String getUri() {
-            return uri;
-        }
-
-        public boolean isDefault() {
-            return isDefault;
-        }
-
-        public String getDisplayTitle() {
-            if (uri.isEmpty()) {
-                return title + " (Silent)";
-            } else if (isDefault) {
-                return title + " (Default)";
-            }
-            return title;
-        }
-    }
 }
