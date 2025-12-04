@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Réveille-Toi</string>
+    <string name="add_alarm">Ajouter une alarme</string>
+    <string name="edit_alarm">Modifier l\'alarme</string>
+    <string name="delete_alarm">Supprimer l\'alarme</string>
+    <string name="alarm_time">Heure de l\'alarme</string>
+    <string name="alarm_label">Libellé de l\'alarme</string>
+    <string name="alarm_label_hint">Entrez un libellé pour l\'alarme</string>
+    <string name="save_alarm">Enregistrer</string>
+    <string name="cancel">Annuler</string>
+    <string name="delete">Supprimer</string>
+    <string name="alarm_enabled">Alarme activée</string>
+    <string name="alarm_disabled">Alarme désactivée</string>
+    <string name="no_alarms">Aucune alarme configurée</string>
+    <string name="select_ringtone">Sélectionner une sonnerie</string>
+    <string name="default_ringtone">Sonnerie par défaut</string>
+    <string name="wake_up">Réveil !</string>
+    <string name="dismiss">Arrêter</string>
+    <string name="snooze">Reporter</string>
+    <string name="alarm_set_for">Alarme programmée pour %1$s</string>
+    <string name="tomorrow">demain</string>
+    <string name="today">aujourd\'hui</string>
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent_orange">#FFFF9800</color>
+    <color name="alarm_active">#FF4CAF50</color>
+    <color name="alarm_inactive">#FFBDBDBD</color>
+    <color name="background_light">#FFF5F5F5</color>
+    <color name="black">#FF000000</color>
+    <color name="ic_launcher_background">#FF2196F3</color>
+    <color name="primary_blue">#FF2196F3</color>
+    <color name="primary_blue_dark">#FF1976D2</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#FFCCCCCC</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="add_alarm">Ajouter une alarme</string>
+    <string name="alarm_disabled">Alarme désactivée</string>
+    <string name="alarm_enabled">Alarme activée</string>
+    <string name="alarm_label">Libellé de l\'alarme</string>
+    <string name="alarm_label_hint">Entrez un libellé pour l\'alarme</string>
+    <string name="alarm_set_for">Alarme programmée pour %1$s</string>
+    <string name="alarm_time">Heure de l\'alarme</string>
+    <string name="app_name">Réveille-Toi</string>
+    <string name="cancel">Annuler</string>
+    <string name="default_ringtone">Sonnerie par défaut</string>
+    <string name="delete">Supprimer</string>
+    <string name="delete_alarm">Supprimer l\'alarme</string>
+    <string name="dismiss">Arrêter</string>
+    <string name="edit_alarm">Modifier l\'alarme</string>
+    <string name="no_alarms">Aucune alarme configurée</string>
+    <string name="save_alarm">Enregistrer</string>
+    <string name="select_ringtone">Sélectionner une sonnerie</string>
+    <string name="snooze">Reporter</string>
+    <string name="today">aujourd\'hui</string>
+    <string name="tomorrow">demain</string>
+    <string name="wake_up">Réveil !</string>
+    <style name="AlarmLabelText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+    <style name="AlarmTimeText">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="AppTheme" parent="Theme.Material3.DayNight">
+        
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="colorPrimaryVariant">@color/primary_blue_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/accent_orange</item>
+        <item name="colorSecondaryVariant">@color/accent_orange</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:colorBackground">@color/black</item>
+        
+    </style>
+    <style name="ButtonPrimary" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/primary_blue</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="ButtonSecondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:strokeColor">@color/primary_blue</item>
+        <item name="android:textColor">@color/primary_blue</item>
+    </style>
+</resources>

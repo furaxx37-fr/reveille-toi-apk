@@ -1,0 +1,340 @@
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/java/com/furaxx37/reveilletoi/Alarm.java:97: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+        return String.format("%02d:%02d", hour, minute);
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DefaultLocale":
+   Calling String#toLowerCase() or #toUpperCase() without specifying an
+   explicit locale is a common source of bugs. The reason for that is that
+   those methods will use the current locale on the user's device, and even
+   though the code appears to work correctly when you are developing the app,
+   it will fail in some locales. For example, in the Turkish locale, the
+   uppercase replacement for i is not I.
+
+   If you want the methods to just perform ASCII replacement, for example to
+   convert an enum name, call String#toUpperCase(Locale.US) instead. If you
+   really want to use the current locale, call
+   String#toUpperCase(Locale.getDefault()) instead.
+
+   https://developer.android.com/reference/java/util/Locale.html#default_locale
+
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/java/com/furaxx37/reveilletoi/AlarmAdapter.java:67: Warning: Use SwitchCompat from AppCompat or SwitchMaterial from Material library [UseSwitchCompatOrMaterialCode from androidx.appcompat]
+        private Switch alarmSwitch;
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UseSwitchCompatOrMaterialCode":
+   Use SwitchCompat from AppCompat or SwitchMaterial from Material library
+
+   Vendor: Android Open Source Project
+   Identifier: androidx.appcompat
+   Feedback: https://issuetracker.google.com/issues/new?component=460343
+
+/root/reveille-toi-apk/reveille-toi-recreated/app/build.gradle:32: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1 [GradleDependency]
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/build.gradle:33: Warning: A newer version of com.google.android.material:material than 1.10.0 is available: 1.13.0 [GradleDependency]
+    implementation 'com.google.android.material:material:1.10.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/build.gradle:34: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1 [GradleDependency]
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/build.gradle:35: Warning: A newer version of androidx.recyclerview:recyclerview than 1.3.2 is available: 1.4.0 [GradleDependency]
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/build.gradle:38: Warning: A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.3.0 [GradleDependency]
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/build.gradle:39: Warning: A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.7.0 [GradleDependency]
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/java/com/furaxx37/reveilletoi/AlarmAdapter.java:49: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+        notifyDataSetChanged();
+        ~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/java/com/furaxx37/reveilletoi/MainActivity.java:62: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+        alarmAdapter.notifyDataSetChanged();
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/java/com/furaxx37/reveilletoi/RingtoneSelectionActivity.java:98: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+            adapter.notifyDataSetChanged();
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NotifyDataSetChanged":
+   The RecyclerView adapter's onNotifyDataSetChanged method does not specify
+   what about the data set has changed, forcing any observers to assume that
+   all existing items and structure may no longer be valid. `LayoutManager`s
+   will be forced to fully rebind and relayout all visible views.
+
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/java/com/furaxx37/reveilletoi/AlarmManager.java:63: Warning: Unnecessary; SDK_INT is always >= 21 [ObsoleteSdkInt]
+            } else if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/java/com/furaxx37/reveilletoi/AlarmScheduler.java:32: Warning: Unnecessary; SDK_INT is always >= 21 [ObsoleteSdkInt]
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/java/com/furaxx37/reveilletoi/AlarmService.java:94: Warning: Unnecessary; SDK_INT is always >= 21 [ObsoleteSdkInt]
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ObsoleteSdkInt":
+   This check flags version checks that are not necessary, because the
+   minSdkVersion (or surrounding known API level) is already at least as high
+   as the version checked for.
+
+   Similarly, it also looks for resources in -vNN folders, such as values-v14
+   where the version qualifier is less than or equal to the minSdkVersion,
+   where the contents should be merged into the best folder.
+
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/alarm_list_item.xml:12: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+    <LinearLayout
+     ~~~~~~~~~~~~
+
+   Explanation for issues of type "DisableBaselineAlignment":
+   When a LinearLayout is used to distribute the space proportionally between
+   nested layouts, the baseline alignment property should be turned off to
+   make the layout computation faster.
+
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/activity_add_alarm.xml:7: Warning: Possible overdraw: Root element paints background @color/black with a theme that also paints a background (inferred theme is @style/AppTheme) [Overdraw]
+    android:background="@color/black">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/activity_alarm.xml:8: Warning: Possible overdraw: Root element paints background @color/primary_blue with a theme that also paints a background (inferred theme is @style/AppTheme) [Overdraw]
+    android:background="@color/primary_blue"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/activity_main.xml:7: Warning: Possible overdraw: Root element paints background @color/black with a theme that also paints a background (inferred theme is @style/AppTheme) [Overdraw]
+    android:background="@color/black">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/activity_ringtone_selection.xml:7: Warning: Possible overdraw: Root element paints background @color/black with a theme that also paints a background (inferred theme is @style/AppTheme) [Overdraw]
+    android:background="@color/black">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/colors.xml:3: Warning: The resource R.color.purple_200 appears to be unused [UnusedResources]
+    <color name="purple_200">#FFBB86FC</color>
+           ~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/colors.xml:4: Warning: The resource R.color.purple_500 appears to be unused [UnusedResources]
+    <color name="purple_500">#FF6200EE</color>
+           ~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/colors.xml:5: Warning: The resource R.color.purple_700 appears to be unused [UnusedResources]
+    <color name="purple_700">#FF3700B3</color>
+           ~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/colors.xml:6: Warning: The resource R.color.teal_200 appears to be unused [UnusedResources]
+    <color name="teal_200">#FF03DAC5</color>
+           ~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/colors.xml:7: Warning: The resource R.color.teal_700 appears to be unused [UnusedResources]
+    <color name="teal_700">#FF018786</color>
+           ~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/colors.xml:15: Warning: The resource R.color.background_light appears to be unused [UnusedResources]
+    <color name="background_light">#FFF5F5F5</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/colors.xml:19: Warning: The resource R.color.alarm_inactive appears to be unused [UnusedResources]
+    <color name="alarm_inactive">#FFBDBDBD</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/strings.xml:4: Warning: The resource R.string.edit_alarm appears to be unused [UnusedResources]
+    <string name="edit_alarm">Modifier l\'alarme</string>
+            ~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/strings.xml:8: Warning: The resource R.string.alarm_label_hint appears to be unused [UnusedResources]
+    <string name="alarm_label_hint">Entrez un libellé pour l\'alarme</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/strings.xml:11: Warning: The resource R.string.delete appears to be unused [UnusedResources]
+    <string name="delete">Supprimer</string>
+            ~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/strings.xml:13: Warning: The resource R.string.alarm_disabled appears to be unused [UnusedResources]
+    <string name="alarm_disabled">Alarme désactivée</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/strings.xml:17: Warning: The resource R.string.wake_up appears to be unused [UnusedResources]
+    <string name="wake_up">Réveil !</string>
+            ~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/strings.xml:18: Warning: The resource R.string.dismiss appears to be unused [UnusedResources]
+    <string name="dismiss">Arrêter</string>
+            ~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/strings.xml:19: Warning: The resource R.string.snooze appears to be unused [UnusedResources]
+    <string name="snooze">Reporter</string>
+            ~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/strings.xml:20: Warning: The resource R.string.alarm_set_for appears to be unused [UnusedResources]
+    <string name="alarm_set_for">Alarme programmée pour %1$s</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/strings.xml:21: Warning: The resource R.string.tomorrow appears to be unused [UnusedResources]
+    <string name="tomorrow">demain</string>
+            ~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/values/strings.xml:22: Warning: The resource R.string.today appears to be unused [UnusedResources]
+    <string name="today">aujourd\'hui</string>
+            ~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/mipmap-hdpi/ic_launcher.png: Warning: Launcher icons should not fill every pixel of their square region; see the design guide for details [IconLauncherShape]
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/mipmap-mdpi/ic_launcher.png: Warning: Launcher icons should not fill every pixel of their square region; see the design guide for details [IconLauncherShape]
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/mipmap-xhdpi/ic_launcher.png: Warning: Launcher icons should not fill every pixel of their square region; see the design guide for details [IconLauncherShape]
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/mipmap-xxhdpi/ic_launcher.png: Warning: Launcher icons should not fill every pixel of their square region; see the design guide for details [IconLauncherShape]
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png: Warning: Launcher icons should not fill every pixel of their square region; see the design guide for details [IconLauncherShape]
+
+   Explanation for issues of type "IconLauncherShape":
+   According to the Android Design Guide
+   (https://material.io/design/iconography/) your launcher icons should "use a
+   distinct silhouette", a "three-dimensional, front view, with a slight
+   perspective as if viewed from above, so that users perceive some depth."
+
+   The unique silhouette implies that your launcher icon should not be a
+   filled square.
+
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml:2: Warning: The application adaptive icon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+
+   Explanation for issues of type "MonochromeLauncherIcon":
+   If android:roundIcon and android:icon are both in your manifest, you must
+   either remove the reference to android:roundIcon if it is not needed; or,
+   supply the monochrome icon in the drawable defined by the android:roundIcon
+   and android:icon attribute.
+
+   For example, if android:roundIcon and android:icon are both in the
+   manifest, a launcher might choose to use android:roundIcon over
+   android:icon to display the adaptive app icon. Therefore, your themed
+   application iconwill not show if your monochrome attribute is not also
+   specified in android:roundIcon.
+
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/activity_alarm.xml:64: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/activity_alarm.xml:78: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+
+   Explanation for issues of type "ButtonStyle":
+   Button bars typically use a borderless style for the buttons. Set the
+   style="?android:attr/buttonBarButtonStyle" attribute on each of the
+   buttons, and set style="?android:attr/buttonBarStyle" on the parent layout
+
+   https://material.io/components/dialogs/
+
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/activity_alarm.xml:47: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+
+   Explanation for issues of type "ContentDescription":
+   Non-textual widgets like ImageViews and ImageButtons should use the
+   contentDescription attribute to specify a textual description of the widget
+   such that screen readers and other accessibility tools can adequately
+   describe the user interface.
+
+   Note that elements in application screens that are purely decorative and do
+   not provide any content or enable a user action should not have
+   accessibility content descriptions. In this case, set their descriptions to
+   @null. If your app's minSdkVersion is 16 or higher, you can instead set
+   these graphical elements' android:importantForAccessibility attributes to
+   no.
+
+   Note that for text fields, you should not set both the hint and the
+   contentDescription attributes since the hint will never be shown. Just set
+   the hint.
+
+   https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases
+
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/java/com/furaxx37/reveilletoi/AddAlarmActivity.java:138: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            ringtoneButton.setText("Sonnerie: " + filename);
+                                   ~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/java/com/furaxx37/reveilletoi/AddAlarmActivity.java:138: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            ringtoneButton.setText("Sonnerie: " + filename);
+                                   ~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/java/com/furaxx37/reveilletoi/AddAlarmActivity.java:140: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            ringtoneButton.setText("Choisir une sonnerie");
+                                   ~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/java/com/furaxx37/reveilletoi/AlarmActivity.java:68: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            labelText.setText("Alarme");
+                              ~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/activity_alarm.xml:16: Warning: Hardcoded string "Lundi, 1 Janvier 2024", should use @string resource [HardcodedText]
+        android:text="Lundi, 1 Janvier 2024"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/activity_alarm.xml:27: Warning: Hardcoded string "07:30", should use @string resource [HardcodedText]
+        android:text="07:30"
+        ~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/activity_alarm.xml:39: Warning: Hardcoded string "Réveil", should use @string resource [HardcodedText]
+        android:text="Réveil"
+        ~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/activity_alarm.xml:69: Warning: Hardcoded string "Répéter (5min)", should use @string resource [HardcodedText]
+            android:text="Répéter (5min)"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/activity_alarm.xml:83: Warning: Hardcoded string "Arrêter", should use @string resource [HardcodedText]
+            android:text="Arrêter"
+            ~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/activity_alarm.xml:97: Warning: Hardcoded string "Glissez vers le haut pour plus d'options", should use @string resource [HardcodedText]
+        android:text="Glissez vers le haut pour plus d'options"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/activity_ringtone_selection.xml:56: Warning: Hardcoded string "Sélectionner", should use @string resource [HardcodedText]
+            android:text="Sélectionner" />
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/alarm_list_item.xml:29: Warning: Hardcoded string "07:30", should use @string resource [HardcodedText]
+                android:text="07:30"
+                ~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/alarm_list_item.xml:36: Warning: Hardcoded string "Réveil du matin", should use @string resource [HardcodedText]
+                android:text="Réveil du matin"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/root/reveille-toi-apk/reveille-toi-recreated/app/src/main/res/layout/ringtone_list_item.xml:25: Warning: Hardcoded string "Ringtone Name", should use @string resource [HardcodedText]
+        android:text="Ringtone Name" />
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+0 errors, 59 warnings

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/primary_blue"
+    android:padding="24dp">
+
+    <!-- Date Display -->
+    <TextView
+        android:id="@+id/alarm_date_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lundi, 1 Janvier 2024"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"
+        android:alpha="0.8" />
+
+    <!-- Time Display -->
+    <TextView
+        android:id="@+id/alarm_time_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="07:30"
+        android:textColor="@android:color/white"
+        android:textSize="72sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="sans-serif-light" />
+
+    <!-- Alarm Label -->
+    <TextView
+        android:id="@+id/alarm_label_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Réveil"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:layout_marginBottom="48dp"
+        android:gravity="center"
+        android:alpha="0.9" />
+
+    <!-- Alarm Icon -->
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@android:drawable/ic_lock_idle_alarm"
+        app:tint="@android:color/white"
+        android:layout_marginBottom="48dp"
+        android:alpha="0.7" />
+
+    <!-- Button Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="32dp">
+
+        <!-- Snooze Button -->
+        <Button
+            android:id="@+id/snooze_button"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="Répéter (5min)"
+            android:textColor="@color/primary_blue"
+            android:background="@android:color/white"
+            android:layout_marginEnd="12dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:elevation="4dp" />
+
+        <!-- Dismiss Button -->
+        <Button
+            android:id="@+id/dismiss_button"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="Arrêter"
+            android:textColor="@android:color/white"
+            android:background="@color/accent_orange"
+            android:layout_marginStart="12dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:elevation="4dp" />
+
+    </LinearLayout>
+
+    <!-- Instructions -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Glissez vers le haut pour plus d'options"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:layout_marginTop="32dp"
+        android:alpha="0.6"
+        android:gravity="center" />
+
+</LinearLayout>

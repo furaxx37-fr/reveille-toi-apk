@@ -1,0 +1,19 @@
+<lint-module
+    format="1"
+    dir="/root/reveille-toi-apk/reveille-toi-recreated/app"
+    name=":app"
+    type="APP"
+    maven="Reveille-Toi:app:"
+    agpVersion="8.1.2"
+    buildFolder="build"
+    bootClassPath="/usr/lib/android-sdk/platforms/android-34/android.jar:/usr/lib/android-sdk/build-tools/33.0.1/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-34"
+    neverShrinking="true">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="debug"/>
+</lint-module>

@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-merged_res-32:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-main-34:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-merged_res-32:/layout_activity_alarm.xml.flat",
+        "source": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-main-34:/layout/activity_alarm.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-merged_res-32:/layout_ringtone_list_item.xml.flat",
+        "source": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-main-34:/layout/ringtone_list_item.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-merged_res-32:/layout_activity_ringtone_selection.xml.flat",
+        "source": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-main-34:/layout/activity_ringtone_selection.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-merged_res-32:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-main-34:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-merged_res-32:/layout_activity_add_alarm.xml.flat",
+        "source": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-main-34:/layout/activity_add_alarm.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-merged_res-32:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-main-34:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-merged_res-32:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-main-34:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-merged_res-32:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-main-34:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-merged_res-32:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-main-34:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.furaxx37.reveilletoi.app-merged_res-32:/layout_alarm_list_item.xml.flat",
+        "source": "com.furaxx37.reveilletoi.app-main-34:/layout/alarm_list_item.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-merged_res-32:/drawable_ic_arrow_back.xml.flat",
+        "source": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-main-34:/drawable/ic_arrow_back.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-merged_res-32:/layout_activity_main.xml.flat",
+        "source": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-main-34:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-merged_res-32:/layout_alarm_list_item.xml.flat",
+        "source": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-main-34:/layout/alarm_list_item.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-merged_res-32:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/root/.gradle/daemon/8.0/com.furaxx37.reveilletoi.app-main-34:/mipmap-hdpi/ic_launcher.png"
+    }
+]
