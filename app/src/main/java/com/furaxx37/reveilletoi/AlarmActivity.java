@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Calendar;
 
 public class AlarmActivity extends AppCompatActivity {
     
@@ -100,20 +101,21 @@ public class AlarmActivity extends AppCompatActivity {
         stopService(serviceIntent);
         
         // Schedule snooze (5 minutes)
+        // Stop current alarm and schedule snooze using AlarmManager from MainActivity
         AlarmManager alarmManager = new AlarmManager(this);
         long snoozeTime = System.currentTimeMillis() + (5 * 60 * 1000); // 5 minutes
+        
+        // Calculate hour and minute for snooze time
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(snoozeTime);
         
         Alarm snoozeAlarm = new Alarm();
         snoozeAlarm.setId(alarmId);
         snoozeAlarm.setLabel(alarmLabel + " (Répétition)");
         snoozeAlarm.setRingtoneUri(ringtoneUri);
         snoozeAlarm.setEnabled(true);
-        
-        // Calculate hour and minute for snooze time
-        java.util.Calendar calendar = java.util.Calendar.getInstance();
-        calendar.setTimeInMillis(snoozeTime);
-        snoozeAlarm.setHour(calendar.get(java.util.Calendar.HOUR_OF_DAY));
-        snoozeAlarm.setMinute(calendar.get(java.util.Calendar.MINUTE));
+        snoozeAlarm.setHour(calendar.get(Calendar.HOUR_OF_DAY));
+        snoozeAlarm.setMinute(calendar.get(Calendar.MINUTE));
         
         alarmManager.setAlarm(snoozeAlarm);
         
